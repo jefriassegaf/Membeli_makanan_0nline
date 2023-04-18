@@ -1,0 +1,36 @@
+# daftar menu
+menu = {
+    "1": {"nama": "Nasi Goreng", "harga": 15000},
+    "2": {"nama": "Mie Goreng", "harga": 12000},
+    "3": {"nama": "Ayam Goreng", "harga": 20000},
+    "4": {"nama": "Sate Ayam", "harga": 25000},
+    "5": {"nama": "Es Teh Manis", "harga": 5000},
+    "6": {"nama": "Es Jeruk", "harga": 6000}
+}
+
+# inisialisasi variabel
+pesanan = {}
+total_harga = 0
+
+# tampilkan daftar menu
+print("Daftar Menu:")
+for key in menu:
+    print(key + ". " + menu[key]["nama"] + " (Rp" + str(menu[key]["harga"]) + ")")
+
+# minta input pesanan
+while True:
+    pilihan = input("Masukkan nomor menu yang ingin dipesan atau 'selesai' jika sudah selesai: ")
+    if pilihan == "selesai":
+        break
+    elif pilihan in menu:
+        jumlah = int(input("Masukkan jumlah pesanan: "))
+        pesanan[menu[pilihan]["nama"]] = jumlah
+        total_harga += menu[pilihan]["harga"] * jumlah
+    else:
+        print("Menu tidak ditemukan, silakan masukkan nomor menu yang benar.")
+
+# tampilkan ringkasan pesanan dan total harga
+print("\nRingkasan Pesanan:")
+for item in pesanan:
+    print(item + " x" + str(pesanan[item]))
+print("Total Harga: Rp" + str(total_harga))
