@@ -1,0 +1,59 @@
+
+
+# daftar restoran awal
+restoran = ["Restoran A", "Restoran B", "Restoran C"]
+
+# tampilan menu admin
+def menu_admin():
+    print("\n===== Selamat datang di Menu Admin =====")
+    print("1. Lihat Restoran")
+    print("2. Tambah Restoran")
+    print("3. Hapus Restoran")
+    print("4. Kembali Login")
+
+# lihat daftar restoran
+def lihat_restoran():
+    print("\n===== Daftar Restoran =====")
+    for i in range(len(restoran)):
+        print(str(i+1) + ". " + restoran[i])
+
+# tambah restoran baru
+def tambah_restoran():
+    nama_restoran = input("\nMasukkan nama restoran baru: ")
+    restoran.append(nama_restoran)
+    print(nama_restoran + " berhasil ditambahkan!")
+
+# hapus restoran
+def hapus_restoran():
+    lihat_restoran()
+    no_restoran = int(input("\nMasukkan nomor restoran yang akan dihapus: "))
+    restoran.pop(no_restoran-1)
+    print("Restoran berhasil dihapus!")
+
+# tampilan login
+def login():
+    username = input("\nMasukkan username: ")
+    password = getpass.getpass("Masukkan password: ")
+    if username == "admin" and password == "admin123":
+        return True
+    else:
+        return False
+
+# program utama
+if login():
+    while True:
+        menu_admin()
+        pilihan = input("\nMasukkan pilihan: ")
+        if pilihan == "1":
+            lihat_restoran()
+        elif pilihan == "2":
+            tambah_restoran()
+        elif pilihan == "3":
+            hapus_restoran()
+        elif pilihan == "4":
+            print("\nAnda telah berhasil keluar!")
+            break
+        else:
+            print("Pilihan tidak tersedia!")
+else:
+    print("Username atau password salah!")
