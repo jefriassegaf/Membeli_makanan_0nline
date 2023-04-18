@@ -1,0 +1,14 @@
+# Input data dari pengguna melalui command line
+restoran_id = input("Masukkan ID restoran: ")
+menu_id = input("Masukkan ID menu: ")
+jarak = float(input("Masukkan jarak ke lokasi antar (dalam km): "))
+harga = int(input("Masukkan total harga: "))
+kuantitas = int(input("Masukkan kuantitas menu yang dipesan: "))
+
+# Mencetak data order yang telah diinputkan
+print("Data order:")
+print("ID Restoran:", restoran_id)
+print("ID Menu:", menu_id)
+print("Jarak ke lokasi antar (km):", jarak)
+print("Total Harga:", harga)
+print("Kuantitas:", kuantitas)
