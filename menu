@@ -1,0 +1,51 @@
+import sys
+
+menu = {
+    "nasi goreng": 15000,
+    "mie goreng": 12000,
+    "ayam goreng": 20000,
+    "sate ayan": 25000,
+    "es teh manis": 15000,
+    "es jeruk" : 6000,
+}
+
+def show_menu():
+    print("Menu Restoran:")
+    for item, price in menu.items():
+        print(f"{item}: Rp {price}")
+
+def add_menu_item():
+    item = input("Masukkan nama menu baru: ")
+    price = int(input("Masukkan harga menu baru: "))
+    menu[item] = price
+    print(f"{item} telah ditambahkan ke menu.")
+
+def remove_menu_item():
+    item = input("Masukkan nama menu yang ingin dihapus: ")
+    if item in menu:
+        del menu[item]
+        print(f"{item} telah dihapus dari menu.")
+    else:
+        print(f"{item} tidak ada dalam menu.")
+
+def exit_program():
+    print("Terima kasih telah menggunakan program ini.")
+    sys.exit()
+
+while True:
+    print("Pilih opsi:")
+    print("1. Lihat menu")
+    print("2. Tambah menu")
+    print("3. Hapus menu")
+    print("4. Keluar")
+    choice = input("Masukkan nomor pilihan: ")
+    if choice == "1":
+        show_menu()
+    elif choice == "2":
+        add_menu_item()
+    elif choice == "3":
+        remove_menu_item()
+    elif choice == "4":
+        exit_program()
+    else:
+        print("Pilihan tidak valid. Silakan pilih lagi.")
