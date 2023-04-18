@@ -1,0 +1,15 @@
+# membuat database dummy
+database = {
+    "admin1": "password123",
+    "admin2": "abc123"
+}
+
+# mengambil input username dan password
+username = input("Username: ")
+password = input("Password: ")
+
+# memeriksa kecocokan username dan password
+if username in database and database[username] == password:
+    print("Login berhasil!")
+else:
+    print("Username atau password salah.")
