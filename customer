@@ -1,0 +1,73 @@
+import getpass
+
+# Fungsi untuk menampilkan menu awal
+def show_menu():
+    print("Selamat datang di program customer!")
+    print("Silahkan pilih menu yang tersedia:")
+    print("1. Lihat restoran")
+    print("2. Buat pesanan")
+    print("3. Lihat pesanan")
+    print("4. Kembali ke login")
+
+# Fungsi untuk menampilkan daftar restoran
+def show_restaurants():
+    print("Daftar restoran yang tersedia:")
+    print("1. Restoran A")
+    print("2. Restoran B")
+    print("3. Restoran C")
+
+# Fungsi untuk membuat pesanan
+def make_order():
+    print("Silahkan masukkan pesanan Anda:")
+    order = input()
+    print("Pesanan Anda adalah:", order)
+
+# Fungsi untuk menampilkan pesanan
+def show_orders():
+    print("Belum ada pesanan yang dibuat.")
+
+# Fungsi untuk menampilkan pesan selamat tinggal
+def say_goodbye():
+    print("Terima kasih telah menggunakan program customer!")
+
+# Fungsi utama
+def main():
+    # Input username dan password
+    username = input("Username: ")
+    password = getpass.getpass("Password: ")
+
+    # Jika username dan password benar, tampilkan menu
+    if username == "customer" and password == "password":
+        show_menu()
+
+        # Loop untuk memproses input dari user
+        while True:
+            choice = input("Masukkan pilihan Anda: ")
+
+            # Jika pilihan adalah 1, tampilkan daftar restoran
+            if choice == "1":
+                show_restaurants()
+
+            # Jika pilihan adalah 2, buat pesanan
+            elif choice == "2":
+                make_order()
+
+            # Jika pilihan adalah 3, lihat pesanan
+            elif choice == "3":
+                show_orders()
+
+            # Jika pilihan adalah 4, keluar dari program
+            elif choice == "4":
+                say_goodbye()
+                break
+
+            # Jika pilihan tidak valid, tampilkan pesan kesalahan
+            else:
+                print("Pilihan tidak valid. Silahkan coba lagi.")
+
+    # Jika username atau password salah, tampilkan pesan kesalahan
+    else:
+        print("Username atau password salah. Silahkan coba lagi.")
+
+# Panggil fungsi utama
+main()
